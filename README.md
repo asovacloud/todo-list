@@ -17,3 +17,8 @@
 
 ## Build on GitHub Pages
 https://asovacloud.github.io/todo-list/
+
+## Start project
+* npm install (Set Up project)
+* npm run watch (Watch project)
+* npm run build (Create build)
