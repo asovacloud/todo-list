@@ -20,3 +20,17 @@
   flex: 0 0 72px;
   padding-left: 10px;
 }
+
+.todo-list-item .todo-list-item-label {
+  position: relative;
+  padding-left: 20px;
+}
+
+.todo-list-item .todo-list-item-label-icon {
+  position: absolute;
+  top: 3px;
+  left: -5px;
+  color: #17a2b8;
+  font-size: 18px;
+  line-height: 1;
+}

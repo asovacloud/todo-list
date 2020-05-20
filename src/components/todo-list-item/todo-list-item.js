@@ -28,7 +28,12 @@ export default class TodoListItem extends Component {
         <span
           onClick={ onToggleDone }
           className="todo-list-item-label"
-        >{ label }</span>
+        >
+          <span className="todo-list-item-label-icon">
+            { done ? <i class="fa fa-check-square"></i> : <i class="fa fa-square"></i> }
+          </span>
+          { label }
+        </span>
         <div className="ml-auto todo-list-item-buttons">
           <button
             className="btn btn-sm btn-outline-danger mr-1"
