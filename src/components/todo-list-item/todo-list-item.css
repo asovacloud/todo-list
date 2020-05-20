@@ -1,0 +1,22 @@
+.todo-list-item {
+  cursor: pointer;
+  user-select: none;
+}
+
+.todo-list-item .todo-list-item-label:hover {
+  text-decoration: underline;
+}
+
+.todo-list-item.important .todo-list-item-label {
+  font-weight: bold;
+  color: #17a2b8;
+}
+
+.todo-list-item.done .todo-list-item-label {
+  text-decoration: line-through;
+}
+
+.todo-list-item-buttons {
+  flex: 0 0 72px;
+  padding-left: 10px;
+}

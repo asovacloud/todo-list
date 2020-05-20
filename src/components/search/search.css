@@ -1,0 +1,14 @@
+.search.btn-group {
+  border-color: #17a2b8;
+}
+
+.search .cyan {
+  background-color: #17a2b8;
+  border-color: #17a2b8;
+}
+
+@media (max-width: 575.98px) {
+  .search {
+    margin-bottom: .5rem !important;
+  }
+}

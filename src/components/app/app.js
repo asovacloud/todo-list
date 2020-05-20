@@ -8,24 +8,24 @@ import './app.css';
 
 export default class App extends Component {
 
-  maxId = 100;
+  getTodoData = () => {
+    const data = localStorage.getItem('todoData');
+    return (data) ? JSON.parse(data) : [];
+  }
 
   state = {
-    todoData: [
-      this.createTodoItem('Add TypeScript'),
-      this.createTodoItem('Make Awesome App'),
-      this.createTodoItem('Watch a Bit Bang Theory app'),
-    ],
+    todoData: this.getTodoData(),
     searchValue: '',
     filter: 'all',
   }
 
   createTodoItem(label) {
+    const maxId = `f${(~~(Math.random()*1e8)).toString(16)}`;
     return {
       label,
       important: false,
       done: false,
-      id: this.maxId++,
+      id: maxId,
     }
   }
 
@@ -38,6 +38,8 @@ export default class App extends Component {
         ...todoData.slice(idx + 1)
       ];
 
+      window.localStorage.setItem('todoData', JSON.stringify(newArray));
+
       return {
         todoData: newArray,
       };
@@ -48,6 +50,7 @@ export default class App extends Component {
     const createRow = this.createTodoItem(text);
     this.setState(({ todoData }) => {
       const newArray = [...todoData, createRow];
+      window.localStorage.setItem('todoData', JSON.stringify(newArray));
       return { todoData: newArray }
     });
   }
@@ -67,13 +70,17 @@ export default class App extends Component {
 
   onToggleImportant = id => {
     this.setState(({ todoData }) => {
-      return { todoData: this.toggleProperty(todoData, id, 'important') }
+      const newArray = this.toggleProperty(todoData, id, 'important');
+      window.localStorage.setItem('todoData', JSON.stringify(newArray));
+      return { todoData: newArray, }
     })
   }
 
   onToggleDone = id => {
     this.setState(({ todoData }) => {
-      return { todoData: this.toggleProperty(todoData, id, 'done') }
+      const newArray = this.toggleProperty(todoData, id, 'done');
+      window.localStorage.setItem('todoData', JSON.stringify(newArray));
+      return { todoData: newArray }
     });
   }
 
