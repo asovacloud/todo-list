@@ -35,4 +35,7 @@
     ]
   },
   "homepage": "http://asovacloud.github.io/todo-list",
+  "devDependencies": {
+    "gh-pages": "^2.2.0"
+  }
 }
